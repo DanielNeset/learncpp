@@ -13,14 +13,14 @@ while (*pointer != search_for) {
 
 ## Things that can go wrong
 
-A user can input a text that is longer then the max 5 characters set in the text variable.
+A user can input a text that is longer then the maximum 4 characters set in the text variable.
 
 ```cpp
 char text[5];
 cin >> text;
 ```
 
-It will endup in a endless loop if the text dont have the character e in it.
+It will endup in a endless loop if the text dont have the character e in it, and might end with a crash.
 
 ```cpp
 while (*pointer != search_for) {}

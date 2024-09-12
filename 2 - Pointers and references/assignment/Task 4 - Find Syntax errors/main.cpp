@@ -9,7 +9,7 @@ int main() {
   int &b = a;
   int *c;
 
-  // c =&b will work but it is a lot easier to read with
+  // c =&b will work but it is a lot easier to read c = &a
   c = &b;
 
   // Change *a = *b + *c, this is because "a" is not a pointer, one can only de-reference a pointer.
@@ -17,4 +17,6 @@ int main() {
 
   // Change &b = 2, this is because a reference cannot change the address it refers to.
   b = 2;
+
+  return 0;
 }
