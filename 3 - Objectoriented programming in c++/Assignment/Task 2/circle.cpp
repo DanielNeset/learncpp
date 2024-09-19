@@ -4,7 +4,7 @@
 Circle::Circle(double radius_) : radius(radius_) {}
 
 int Circle::get_area() const {
-  return pi * radius;
+  return pi * radius * radius;
 }
 
 // Change to double

@@ -6,7 +6,7 @@ const double pi = 3.141592;
 
 class Circle {
 public:
-  // Constructor need to be names the same as the class.
+  // Constructor need to be named the same as the class, big C.
   Circle(double radius_);
   int get_area() const;
   double get_circumference() const;
@@ -15,11 +15,11 @@ private:
   double radius;
 };
 
-// Remove public and switch radius_(radius)
+// Remove public and switch radius_(radius) to radius(radius_)
 Circle::Circle(double radius_) : radius(radius_) {}
 
 int Circle::get_area() const {
-  return pi * radius;
+  return pi * radius * radius;
 }
 
 // Change to double

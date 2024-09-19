@@ -34,7 +34,7 @@ int main() {
   if (sentence.length() >= 5) {
     sentence_start = sentence.substr(0, 5);
   }
-  cout << "First 5 characters of the sentence: " << sentence_start << endl;
+  cout << "First 5 characters of: " << sentence << " is: " << sentence_start << endl;
 
   // Part g
   size_t found = sentence.find("hallo");
@@ -54,7 +54,7 @@ int main() {
     amount++;
   }
   cout << endl;
-  cout << "'er' found: " << amount << "." << endl;
+  cout << "'er' found: " << amount << " times." << endl;
 
   return 0;
 }
