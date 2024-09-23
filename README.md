@@ -20,6 +20,9 @@ I am using a code editor called [juci++](https://gitlab.com/cppit/jucipp) to edi
 2. Setup an enviroment to work with C++, i recomend juci++
 3. Open juci++, select a folder and in the menu select 'compile and run'
 
+For GUI you need to install gtkmm:
+```brew install gtkmm3 ```
+
 ## Files
 
 ### 1 - The basics
