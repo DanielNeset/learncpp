@@ -16,7 +16,7 @@ int main() {
   cout << "Numbers back: " << numbers.back() << " Numbers front: " << numbers.front() << endl;
 
   numbers.emplace(numbers.begin() + 1, 2.2);
-  cout << "Numbers back: " << numbers.back() << " Numbers front: " << numbers.front() << endl;
+  cout << "New number: " << numbers[1] << " Numbers back: " << numbers.back() << " Numbers front: " << numbers.front() << endl;
 
   auto it = find(numbers.begin(), numbers.end(), 2.2);
 

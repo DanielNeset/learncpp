@@ -12,7 +12,7 @@ public:
   Gtk::Label label;
 
   Window() {
-    set_title("Name combiner");
+    set_title("Øving 4");
     set_default_size(400, 200);
 
     button.set_label("Combine names");
