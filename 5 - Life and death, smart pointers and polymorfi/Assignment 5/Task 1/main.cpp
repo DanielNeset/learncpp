@@ -23,6 +23,10 @@ int main() {
   board.move_piece("b1", "b2");
   cout << endl;
 
+  cout << "Board setup:" << endl;
+  board.print_board();
+  cout << endl;
+
   cout << "A simulated game:" << endl;
   board.move_piece("e1", "e2");
   board.move_piece("g8", "h6");
@@ -33,4 +37,7 @@ int main() {
   board.move_piece("d5", "f6");
   board.move_piece("h6", "g8");
   board.move_piece("f6", "e8");
+  cout << "Board setup:" << endl;
+  board.print_board();
+  cout << endl;
 }

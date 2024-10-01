@@ -19,6 +19,7 @@ public:
     virtual ~Piece();
     virtual string type() const = 0;
     virtual bool valid_move(int from_x, int from_y, int to_x, int to_y) const = 0;
+    virtual char symbol() const = 0;
 
   protected:
     Color color;
@@ -30,6 +31,7 @@ public:
 
     string type() const override;
     bool valid_move(int from_x, int from_y, int to_x, int to_y) const override;
+    char symbol() const override;
   };
 
   class Knight : public Piece {
@@ -38,6 +40,7 @@ public:
 
     string type() const override;
     bool valid_move(int from_x, int from_y, int to_x, int to_y) const override;
+    char symbol() const override;
   };
 
   ChessBoard();
@@ -47,6 +50,8 @@ public:
   void place_piece(int x, int y, unique_ptr<Piece> piece);
 
   const Piece *get_piece(int x, int y) const;
+
+  void print_board() const;
 
 private:
   vector<vector<unique_ptr<Piece>>> squares;

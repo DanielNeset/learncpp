@@ -17,17 +17,42 @@ string ChessBoard::Piece::color_string() const {
   }
 }
 
+/// King Implementation --------------------------------
 ChessBoard::King::King(Color color) : Piece(color) {}
 // ChessBoard::King::~King() {}
 string ChessBoard::King::type() const {
   return color_string() + " King";
 }
 
+bool ChessBoard::King::valid_move(int from_x, int from_y, int to_x, int to_y) const {
+  // A king can move one square in any direction
+  int dx = abs(to_x - from_x);
+  int dy = abs(to_y - from_y);
+  return (dx <= 1 && dy <= 1);
+}
+
+char ChessBoard::King::symbol() const {
+  return (color == Color::WHITE) ? 'K' : 'k';
+}
+
+/// Knight Implementation --------------------------------
 ChessBoard::Knight::Knight(Color color) : Piece(color) {}
 // ChessBoard::King::~King() {}
 string ChessBoard::Knight::type() const {
   return color_string() + " Knight";
 }
+
+bool ChessBoard::Knight::valid_move(int from_x, int from_y, int to_x, int to_y) const {
+  int dx = abs(from_x - to_x);
+  int dy = abs(from_y - to_y);
+  return (dx == 2 && dy == 1) || (dx == 1 && dy == 2);
+}
+
+char ChessBoard::Knight::symbol() const {
+  return (color == Color::WHITE) ? 'N' : 'n';
+}
+
+/// Chessboard Implementation --------------------------------
 
 ChessBoard::ChessBoard() {
   squares.resize(8);
@@ -38,19 +63,6 @@ ChessBoard::ChessBoard() {
 
 void ChessBoard::place_piece(int x, int y, unique_ptr<Piece> piece) {
   squares[x][y] = std::move(piece);
-}
-
-bool ChessBoard::King::valid_move(int from_x, int from_y, int to_x, int to_y) const {
-  // A king can move one square in any direction
-  int dx = abs(to_x - from_x);
-  int dy = abs(to_y - from_y);
-  return (dx <= 1 && dy <= 1);
-}
-
-bool ChessBoard::Knight::valid_move(int from_x, int from_y, int to_x, int to_y) const {
-  int dx = abs(from_x - to_x);
-  int dy = abs(from_y - to_y);
-  return (dx == 2 && dy == 1) || (dx == 1 && dy == 2);
 }
 
 const ChessBoard::Piece *ChessBoard::get_piece(int x, int y) const {
@@ -89,4 +101,20 @@ bool ChessBoard::move_piece(const std::string &from, const std::string &to) {
     cout << "No piece at " << from << endl;
     return false;
   }
+}
+
+void ChessBoard::print_board() const {
+  cout << "  a b c d e f g h\n";
+  for (int i = 7; i >= 0; --i) {
+    cout << i + 1 << " ";
+    for (int j = 0; j < 8; ++j) {
+      if (squares[j][i]) {
+        cout << squares[j][i]->symbol() << " ";
+      } else {
+        cout << ". ";
+      }
+    }
+    cout << i + 1 << endl;
+  }
+  cout << "  a b c d e f g h\n";
 }
