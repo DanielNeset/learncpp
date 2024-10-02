@@ -19,13 +19,11 @@ string ChessBoard::Piece::color_string() const {
 
 /// King Implementation --------------------------------
 ChessBoard::King::King(Color color) : Piece(color) {}
-// ChessBoard::King::~King() {}
 string ChessBoard::King::type() const {
   return color_string() + " King";
 }
 
 bool ChessBoard::King::valid_move(int from_x, int from_y, int to_x, int to_y) const {
-  // A king can move one square in any direction
   int dx = abs(to_x - from_x);
   int dy = abs(to_y - from_y);
   return (dx <= 1 && dy <= 1);
@@ -37,7 +35,6 @@ char ChessBoard::King::symbol() const {
 
 /// Knight Implementation --------------------------------
 ChessBoard::Knight::Knight(Color color) : Piece(color) {}
-// ChessBoard::King::~King() {}
 string ChessBoard::Knight::type() const {
   return color_string() + " Knight";
 }
@@ -53,7 +50,6 @@ char ChessBoard::Knight::symbol() const {
 }
 
 /// Chessboard Implementation --------------------------------
-
 ChessBoard::ChessBoard() {
   squares.resize(8);
   for (auto &square_column : squares) {
@@ -88,17 +84,21 @@ bool ChessBoard::move_piece(const std::string &from, const std::string &to) {
           }
         } else {
           cout << "Cannot move " << piece_from->type() << " from " << from << " to " << to << endl;
+          print_board();
           return false;
         }
       }
       piece_to = std::move(piece_from);
+      print_board();
       return true;
     } else {
       cout << "Cannot move " << piece_from->type() << " from " << from << " to " << to << endl;
+      print_board();
       return false;
     }
   } else {
     cout << "No piece at " << from << endl;
+    print_board();
     return false;
   }
 }
@@ -116,5 +116,7 @@ void ChessBoard::print_board() const {
     }
     cout << i + 1 << endl;
   }
-  cout << "  a b c d e f g h\n";
+  cout << "  a b c d e f g h\n"
+       << endl;
+  ;
 }
