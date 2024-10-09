@@ -22,7 +22,7 @@ private:
 
     // Read from client until newline "\r\n"
     async_read_until(connection->socket, *read_buffer, "\r\n",
-                     [this, connection, read_buffer](const boost::system::error_code &ec, size_t) {
+                     [connection, read_buffer](const boost::system::error_code &ec, size_t) {
                        // If there's no error:
                        if (!ec) {
                          // Retrieve the request message from the client:
@@ -41,31 +41,36 @@ private:
                          auto write_buffer = make_shared<boost::asio::streambuf>();
                          ostream write_stream(write_buffer.get());
 
+                         string response_body;
+
                          if (method == "GET") {
                            // Handle different paths
                            if (path == "/") {
-                             write_stream << "HTTP/1.1 200 OK\r\n"
-                                          << "Content-Type: text/plain\r\n\r\n"
-                                          << "Dette er hovedsiden\r\n";
+                             response_body = "Dette er hovedsiden\r\n";
                            } else if (path == "/en_side") {
-                             write_stream << "HTTP/1.1 200 OK\r\n"
-                                          << "Content-Type: text/plain\r\n\r\n"
-                                          << "Dette er en side\r\n";
+                             response_body = "Dette er en side\r\n";
                            } else {
-                             write_stream << "HTTP/1.1 404 Not Found\r\n"
-                                          << "Content-Type: text/plain\r\n\r\n"
-                                          << "404 Not Found\r\n";
+                             response_body = "404 Not Found\r\n";
                            }
+
+                           write_stream << "HTTP/1.1 200 OK\r\n";
+                           write_stream << "Content-Type: text/plain\r\n";
+                           write_stream << "Content-Length: " << response_body.size() << "\r\n";
+                           write_stream << "Connection: close\r\n\r\n";
+                           write_stream << response_body;
                          } else {
                            // Method not allowed
-                           write_stream << "HTTP/1.1 405 Method Not Allowed\r\n"
-                                        << "Content-Type: text/plain\r\n\r\n"
-                                        << "405 Method Not Allowed\r\n";
+                           response_body = "405 Method Not Allowed\r\n";
+                           write_stream << "HTTP/1.1 405 Method Not Allowed\r\n";
+                           write_stream << "Content-Length: " << response_body.size() << "\r\n";
+                           write_stream << "Content-Type: text/plain\r\n";
+                           write_stream << "Connection: close\r\n\r\n";
+                           write_stream << response_body;
                          }
 
                          // Write the response to the client
                          async_write(connection->socket, *write_buffer,
-                                     [this, connection, write_buffer](const boost::system::error_code &ec, size_t) {
+                                     [connection, write_buffer](const boost::system::error_code &ec, size_t) {
                                        if (!ec) {
                                          // Close the connection after response
                                          connection->socket.close();
