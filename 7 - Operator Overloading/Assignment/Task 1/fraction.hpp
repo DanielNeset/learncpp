@@ -16,8 +16,8 @@ public:
   Fraction operator*(const Fraction &other) const;
   Fraction operator/(const Fraction &other) const;
   Fraction operator-() const;
-  Fraction &operator++(); // Preinkrement
-  Fraction &operator--(); // Predekrement
+  Fraction &operator++();
+  Fraction &operator--();
   Fraction &operator+=(const Fraction &other);
   Fraction &operator-=(const Fraction &other);
   Fraction &operator*=(const Fraction &other);

@@ -11,10 +11,13 @@ void print(const string &text, const Fraction &fraction) {
 int main() {
   Fraction fraction1(10, 20);
   Fraction fraction2(5, 3);
+
+  cout << "Fraction1 is 10/20 and Fraction2 is 5/3" << endl;
+
   print("Fraction1 + 10 = ", fraction1 + 10);
   print("10 + Fraction1 = ", 10 + fraction1);
-  print("Fraction1 - 10 = ", fraction1 - 10);
-  print("10 -Fraction1 = ", 10 - fraction1);
+  print("Fraction1 - 5 = ", fraction1 - 5);
+  print("5 -Fraction1 = ", 5 - fraction1);
 
   /// ----- Theory -----
   /// How does this get interpreted
