@@ -14,6 +14,10 @@
   - [4 - Container, auto and lambda](#4---container-auto-and-lambda)
   - [5 - Smart pointers and Polymorfi in C++](#5---life-and-death-smart-pointers-and-polymortfi)
   - [5 - Smart pointers and Polymorfi in Rust](#5---smart-pointers-and-polymorfi-in-rust)
+  - [6 - Function Objects and Threads in c++](#6---function-objects-and-threads)
+  - [6 - Function Objects and Threads in Rust](#6---function-objects-and-threads-in-rust)
+  - [7 - Operator Overloading](#7---operator-overloading)
+  - [8 - Templates](#8---templates)
 
 ## Information
 
@@ -51,3 +55,15 @@ A few very basics c++ example code snippits with information how to basic write 
 ### 5 - Life and death, smart pointers and polymortfi
 
 ### 5 - Smart pointers and Polymorfi in Rust
+
+### 6 - Function Objects and Threads
+
+### 6 - Function Objects and Threads in Rust
+
+### 7 - Operator Overloading
+
+Beign able to set pre exsistion operators to classes, like object + object = some value.
+
+### 8 - Templates
+
+Making templates lets you set a default template for a class or method, and can take in multiple types.
