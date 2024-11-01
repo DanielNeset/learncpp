@@ -21,6 +21,10 @@ int main() {
 
   cout << boolalpha << "equal(x, y): " << equal(x, y) << endl;
   cout << boolalpha << "equal(a, b): " << equal(a, b) << endl;
+  cout << endl;
+
+  cout << boolalpha << "equal(x, y): " << equal(x + 1, y) << endl;
+  cout << boolalpha << "equal(a, b): " << equal(a + 0.001, b) << endl;
 
   return 0;
 }
