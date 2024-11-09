@@ -18,6 +18,8 @@
   - [6 - Function Objects and Threads in Rust](#6---function-objects-and-threads-in-rust)
   - [7 - Operator Overloading](#7---operator-overloading)
   - [8 - Templates](#8---templates)
+  - [9 - STL Algorithms](#9---stl-algorithms)
+  - [9 - STL Algorithms Rust](#9---stl-algorithms-rust)
 
 ## Information
 
@@ -67,3 +69,11 @@ Beign able to set pre exsistion operators to classes, like object + object = som
 ### 8 - Templates
 
 Making templates lets you set a default template for a class or method, and can take in multiple types.
+
+### 9 - STL Algorithms
+
+Learning about some built in algorithms in c++, we can use on vectors.
+
+### 9 - STL Algorithms Rust
+
+Learning about super simple algorithms in Rust.
