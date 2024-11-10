@@ -20,6 +20,7 @@
   - [8 - Templates](#8---templates)
   - [9 - STL Algorithms](#9---stl-algorithms)
   - [9 - STL Algorithms Rust](#9---stl-algorithms-rust)
+  - [10 - Thid Part library](#10---third-part-library)
 
 ## Information
 
@@ -77,3 +78,5 @@ Learning about some built in algorithms in c++, we can use on vectors.
 ### 9 - STL Algorithms Rust
 
 Learning about super simple algorithms in Rust.
+
+### 10 - Third part library
